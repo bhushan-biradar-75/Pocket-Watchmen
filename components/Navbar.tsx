@@ -1,3 +1,3 @@
 export default function Navbar(){
-    return <h1>Bappa</h1>
+    return <h1>Bappa Morya re</h1>
 } 
