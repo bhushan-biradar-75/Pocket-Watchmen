@@ -2,6 +2,7 @@
 import { db } from '@/lib/db';
 import { auth } from '@clerk/nextjs/server';
 import { Record } from '@/types/Record';
+import { fecthUserRecord } from '@/lib/record';
 
 async function getRecords(): Promise<{
   records?: Record[];
@@ -14,17 +15,10 @@ async function getRecords(): Promise<{
   }
 
   try {
-    const records = await db.record.findMany({
-      where: { userId },
-      orderBy: {
-        date: 'desc', 
-      },
-      take: 10, 
-    });
-
+    const records = await fecthUserRecord(userId);
     return { records };
   } catch (error) {
-    console.error('Error fetching records:', error); // Log the error
+    console.error('Error fetching records:', error); 
     return { error: 'Database error' };
   }
 }
