@@ -3,7 +3,6 @@
 const ContactPage = () => {
   return (
     <div className='font-sans bg-gradient-to-br from-gray-50 via-white to-emerald-50 dark:from-gray-900 dark:via-gray-800 dark:to-emerald-900/20 text-gray-800 dark:text-gray-200 transition-all duration-300 min-h-screen'>
-      {/* Hero Section */}
       <section className='relative overflow-hidden flex flex-col items-center justify-center text-center py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-8 bg-gradient-to-br from-emerald-500/10 via-green-500/5 to-teal-500/10 dark:from-emerald-900/30 dark:via-green-900/20 dark:to-teal-900/30'>
         <div className='absolute inset-0 bg-grid-pattern opacity-5 dark:opacity-10'></div>
         <div className='relative z-10 max-w-4xl mx-auto w-full'>
