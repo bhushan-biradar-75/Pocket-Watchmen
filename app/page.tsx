@@ -1,6 +1,7 @@
 import AddNewRecord from "@/components/AddNewRecord";
 import Guest from "@/components/Guest";
 import RecordChart from "@/components/RecordChart";
+import RecordHistory from "@/components/RecordHistory";
 import { currentUser } from "@clerk/nextjs/server";
 
 
@@ -28,7 +29,6 @@ export default async function Home() {
                 </div>
               </div>
 
-              {/* User Details - responsive text and layout */}
               <div className='flex-1 text-center sm:text-left'>
                 <div className='flex flex-col sm:flex-row items-center sm:items-start justify-center sm:justify-start gap-2 sm:gap-3 mb-3'>
                   <div className='w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-emerald-500 via-green-500 to-teal-500 rounded-xl flex items-center justify-center shadow-lg'>
@@ -43,7 +43,7 @@ export default async function Home() {
                   Track your spending, analyze patterns, and manage your budget
                   efficiently!
                 </p>
-                {/* Mobile-optimized badge grid */}
+                {/* Mobile grid */}
                 <div className='flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center sm:justify-start'>
                   <div className='bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-900/30 dark:to-green-900/30 border border-emerald-100 dark:border-emerald-800 px-3 py-2 rounded-xl flex items-center gap-2 justify-center sm:justify-start'>
                     <div className='w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-r from-emerald-500 to-green-500 rounded-lg flex items-center justify-center flex-shrink-0'>
@@ -76,22 +76,14 @@ export default async function Home() {
                 </div>
               </div>
             </div>
-            {/* Add New Expense */}
             <AddNewRecord />
           </div>
-
-          {/* Right Column - Stacked below on mobile */}
           <div className='space-y-4 sm:space-y-6'>
-            {/* Expense Analytics */}
             <RecordChart />
-            {/* <ExpenseStats /> */}
           </div>
         </div>
-
-        {/* Full-width sections below - mobile-friendly spacing */}
         <div className='mt-6 sm:mt-8 space-y-4 sm:space-y-6'>
-          {/* <AIInsights /> */}
-          {/* <RecordHistory /> */}
+          <RecordHistory />
         </div>
       </div>
     </main>

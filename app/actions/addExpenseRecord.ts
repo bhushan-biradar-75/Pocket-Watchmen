@@ -8,7 +8,7 @@ interface RecordData {
   text: string;
   amount: number;
   category: string;
-  date: string; // Added date field
+  date: string; 
 }
 
 interface RecordResult {
@@ -22,9 +22,8 @@ async function addExpenseRecord(formData: FormData): Promise<RecordResult> {
   const textValue = formData.get('text');
   const amountValue = formData.get('amount');
   const categoryValue = formData.get('category');
-  const dateValue = formData.get('date'); // Extract date from formData
+  const dateValue = formData.get('date'); 
 
-  // Check for input values validation
   if (
     !textValue ||
     textValue === '' ||
@@ -38,7 +37,7 @@ async function addExpenseRecord(formData: FormData): Promise<RecordResult> {
   }
 
   const text: string = textValue.toString(); 
-  const amount: number = parseFloat(amountValue.toString()); //should be no
+  const amount: number = parseFloat(amountValue.toString()); 
   const category: string = categoryValue.toString();
   let date: string;
 
@@ -54,10 +53,8 @@ async function addExpenseRecord(formData: FormData): Promise<RecordResult> {
     console.error('Invalid date format:', error); 
     return { error: 'Invalid date format' };
   }
-  // Get logged in user
   const { userId } = await auth();
 
-  // Check for user
   if (!userId) {
     return { error: 'User not found' };
   }

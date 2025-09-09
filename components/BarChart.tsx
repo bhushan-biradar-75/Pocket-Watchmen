@@ -71,7 +71,7 @@ const BarChart = ({ records }: { records: Record[] }) => {
         dateMap.set(dateKey, {
           total: record.amount,
           categories: [record.category],
-          originalDate: record.date, // Keep original ISO date for sorting
+          originalDate: record.date,
         });
       }
     });
@@ -116,10 +116,8 @@ const BarChart = ({ records }: { records: Record[] }) => {
     }; // Green for low spending
   };
 
-  // Prepare data for the chart
   const data = {
     labels: aggregatedData.map((item) => {
-      // Format date as MM/DD for better readability
       const [, month, day] = item.date.split('-');
       return `${month}/${day}`;
     }),
@@ -133,20 +131,20 @@ const BarChart = ({ records }: { records: Record[] }) => {
           (item) => getAmountColor(item.amount).border
         ),
         borderWidth: 1,
-        borderRadius: 2, // Rounded bar edges
+        borderRadius: 2, 
       },
     ],
   };
 
   const options = {
     responsive: true,
-    maintainAspectRatio: false, // Allow flexible height
+    maintainAspectRatio: false, 
     plugins: {
       legend: {
-        display: false, // Remove legend
+        display: false, 
       },
       title: {
-        display: false, // Remove chart title
+        display: false,
       },
       tooltip: {
         backgroundColor: isDark
@@ -185,12 +183,12 @@ const BarChart = ({ records }: { records: Record[] }) => {
           font: {
             size: isMobile ? 10 : 12,
           },
-          color: isDark ? '#9ca3af' : '#7f8c8d', // Gray x-axis labels
-          maxRotation: isMobile ? 45 : 0, // Rotate labels on mobile
+          color: isDark ? '#9ca3af' : '#7f8c8d', 
+          maxRotation: isMobile ? 45 : 0, 
           minRotation: isMobile ? 45 : 0,
         },
         grid: {
-          display: false, // Hide x-axis grid lines
+          display: false, 
         },
       },
       y: {
@@ -198,24 +196,24 @@ const BarChart = ({ records }: { records: Record[] }) => {
           display: true,
           text: 'Amount ($)',
           font: {
-            size: isMobile ? 12 : 16, // Smaller font on mobile
+            size: isMobile ? 12 : 16, 
             weight: 'bold' as const,
           },
           color: isDark ? '#d1d5db' : '#2c3e50',
         },
         ticks: {
           font: {
-            size: isMobile ? 10 : 12, // Smaller font on mobile
+            size: isMobile ? 10 : 12, 
           },
-          color: isDark ? '#9ca3af' : '#7f8c8d', // Gray y-axis labels
+          color: isDark ? '#9ca3af' : '#7f8c8d', 
           callback: function (value: string | number) {
-            return '$' + value; // Add dollar sign to y-axis labels
+            return '$' + value; 
           },
         },
         grid: {
-          color: isDark ? '#374151' : '#e0e0e0', // Dark mode grid lines
+          color: isDark ? '#374151' : '#e0e0e0', 
         },
-        beginAtZero: true, // Start y-axis at zero for expenses
+        beginAtZero: true, 
       },
     },
   };

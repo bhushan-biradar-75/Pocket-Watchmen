@@ -4,15 +4,15 @@ import addExpenseRecord from '@/app/actions/addExpenseRecord';
 import { suggestCategory } from '@/app/actions/suggestCategory';
 
 const AddRecord = () => {
+  const [amount, setAmount] = useState(50); 
+  const [alertMessage, setAlertMessage] = useState<string | null>(null); 
+  const [alertType, setAlertType] = useState<'success' | 'error' | null>(null);
+  const [isLoading, setIsLoading] = useState(false); 
+  const [category, setCategory] = useState(''); 
+  const [description, setDescription] = useState(''); 
+  const [isCategorizingAI, setIsCategorizingAI] = useState(false); 
+  
   const formRef = useRef<HTMLFormElement>(null);
-  const [amount, setAmount] = useState(50); // Default value for expense amount
-  const [alertMessage, setAlertMessage] = useState<string | null>(null); // State for alert message
-  const [alertType, setAlertType] = useState<'success' | 'error' | null>(null); // State for alert type
-  const [isLoading, setIsLoading] = useState(false); // State for loading spinner
-  const [category, setCategory] = useState(''); // State for selected expense category
-  const [description, setDescription] = useState(''); // State for expense description
-  const [isCategorizingAI, setIsCategorizingAI] = useState(false); // State for AI categorization loading
-
   const clientAction = async (formData: FormData) => {
     setIsLoading(true); 
     setAlertMessage(null); 
@@ -36,6 +36,7 @@ const AddRecord = () => {
 
     setIsLoading(false); // Hide spinner
   };
+
 
   const handleAISuggestCategory = async () => {
     if (!description.trim()) {

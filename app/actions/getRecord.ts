@@ -1,5 +1,4 @@
 'use server';
-import { db } from '@/lib/db';
 import { auth } from '@clerk/nextjs/server';
 import { Record } from '@/types/Record';
 import { fecthUserRecord } from '@/lib/record';
