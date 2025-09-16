@@ -33,8 +33,7 @@ const AddRecord = () => {
       setCategory(''); 
       setDescription('');
     }
-
-    setIsLoading(false); // Hide spinner
+    setIsLoading(false); 
   };
 
 

@@ -17,7 +17,6 @@ interface RecordResult {
 }
 
 async function addExpenseRecord(formData: FormData): Promise<RecordResult> {
-    console.log("Render------>")
 
   const textValue = formData.get('text');
   const amountValue = formData.get('amount');
